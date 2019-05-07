@@ -6,7 +6,7 @@ browser.menus.create({
         "16": "icon.svg",
         "32": "icon.svg"
     },
-    title: "Stack tabs from ",
+    title: browser.i18n.getMessage("hide_context"),
     contexts: ["tab"]
 });
 
@@ -25,7 +25,7 @@ async function tabHide(url ,excludeId, location) {
             "type": "basic",
             "iconUrl": "icon.svg",
             "title": "Tab Stack for Firefox",
-            "message": "That's the last shown tab."
+            "message": browser.i18n.getMessage("notifi_last_tab")
         });
     }
     browser.menus.create({
@@ -34,7 +34,7 @@ async function tabHide(url ,excludeId, location) {
             "16": "icon.svg",
             "32": "icon.svg"
         },
-        title: "Show tabs from " + location,
+        title: browser.i18n.getMessage("show_context") + location,
         contexts: ["tab"]
     });
     targetLocation = location;
@@ -43,7 +43,7 @@ async function tabHide(url ,excludeId, location) {
 browser.menus.onShown.addListener(async function(info, tab) {
     let splitting = tab.url.split("/");
     browser.menus.update("hide-top-domain", {
-        title: "Stack tabs from " + splitting[2]
+        title: browser.i18n.getMessage("hide_context") + splitting[2]
     });
     browser.menus.refresh();
 });
@@ -62,7 +62,7 @@ async function tabShow(targetLocation) {
             "16": "icon.svg",
             "32": "icon.svg"
         },
-        title: "Stack tabs from ",
+        title: browser.i18n.getMessage("hide_context"),
         contexts: ["tab"]
     });
 }

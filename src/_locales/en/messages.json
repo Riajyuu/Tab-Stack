@@ -1,0 +1,18 @@
+{
+  "extensionDescription": {
+    "message": "Bring Vivaldi Tab Stack to Firefox",
+    "description": "Brief description of the extension"
+  },
+  "hide_context": {
+    "message": "Stack tabs from ",
+    "description": "Tab context from tab hiding"
+  },
+  "notifi_last_tab": {
+    "message": "That's the last shown tab.",
+    "description": "Notifi' for last tab ever shown"
+  },
+  "show_context": {
+    "message": "Show tabs from ",
+    "description": "Tab context from tab showing"
+  }
+}

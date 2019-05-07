@@ -4,7 +4,7 @@
     "short_name": "Tab Stack",
     "homepage_url": "https://github.com/Riajyuu/Tab-Stack",
     "version": "1.0.0",
-    "description": "Bring Vivaldi Tab Stack to Firefox",
+    "description": "__MSG_extensionDescription__",
     "applications": {
       "gecko": {
         "id": "tabstack@github",
@@ -21,9 +21,9 @@
     "permissions": [
       "tabs",
       "notifications",
-      "contextualIdentities",
       "menus",
       "activeTab",
       "tabHide"
-    ]
+    ],
+    "default_locale": "en"
 }

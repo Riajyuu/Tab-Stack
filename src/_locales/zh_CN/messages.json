@@ -1,0 +1,18 @@
+{
+  "extensionDescription": {
+    "message": "将 Vivaldi 当中的 Tab Stack 特性引入至 Firefox",
+    "description": "Brief description of the extension"
+  },
+  "hide_context": {
+    "message": "隐藏域名 ",
+    "description": "Tab context from tab hiding"
+  },
+  "notifi_last_tab": {
+    "message": "该标签页为最后一个仍显示的标签页",
+    "description": "Notifi' for last tab ever shown"
+  },
+  "show_context": {
+    "message": "显示域名 ",
+    "description": "Tab context from tab showing"
+  }
+}
