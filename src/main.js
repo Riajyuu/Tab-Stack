@@ -15,10 +15,19 @@ async function tabHide(url ,excludeId, location) {
         hidingTab = query.map((item)=>{
         return item.id
     }),
-        index = hidingTab.indexOf(excludeId);
+        index = hidingTab.indexOf(excludeId),
+        hiddenQuery = await browser.tabs.query({url: url, currentWindow: true, hidden: false})
     hidingTab.splice(index, 1);
-    browser.tabs.hide(hidingTab);
-    browser.menus.remove("hide-top-domain");
+    if (hiddenQuery.length > 1) {
+        browser.tabs.hide(hidingTab);
+    } else if (hiddenQuery.length == 1) {
+        browser.notifications.create({
+            "type": "basic",
+            "iconUrl": "icon.svg",
+            "title": "Tab Stack for Firefox",
+            "message": "That's the last shown tab."
+        });
+    }
     browser.menus.create({
         id: "show-top-domain",
         icons: {
