@@ -8,6 +8,16 @@ browser.menus.create({
     contexts: ["tab"]
 });
 
+async function tabHide(url ,id) {
+    let query = await browser.tabs.query({url: url, currentWindow: true}),
+        hidingTab = query.map((item)=>{
+        return item.id
+    });
+    let index = hidingTab.indexOf(id);
+    hidingTab.splice(index, 1);
+    browser.tabs.hide(hidingTab);
+}
+
 browser.menus.onShown.addListener(async function(info, tab) {
     let splitting = tab.url.split("/");
     browser.menus.update("hide-top-domain", {
@@ -19,10 +29,7 @@ browser.menus.onShown.addListener(async function(info, tab) {
 browser.menus.onClicked.addListener(function(info, tab) {
     if (info.menuItemId == "hide-top-domain") {
         let splitting = tab.url.split("/"),
-            hiding = "*://" + splitting + "/*";
-        browser.tabs.query({url: hiding, currentWindow: true}).then(
-            console.log(hiding, tab.id),
-            browser.tabs.hide(tab.id)
-        );
+            hiding = "*://" + splitting[2] + "/*";
+        tabHide(hiding ,tab.id);
     }
 });
