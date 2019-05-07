@@ -8,12 +8,12 @@ browser.menus.create({
     contexts: ["tab"]
 });
 
-async function tabHide(url ,id) {
+async function tabHide(url ,excludeId) {
     let query = await browser.tabs.query({url: url, currentWindow: true}),
         hidingTab = query.map((item)=>{
         return item.id
     });
-    let index = hidingTab.indexOf(id);
+    let index = hidingTab.indexOf(excludeId);
     hidingTab.splice(index, 1);
     browser.tabs.hide(hidingTab);
 }
