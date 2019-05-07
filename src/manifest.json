@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Tab Stack for Firefox",
+    "short_name": "Tab Stack",
+    "homepage_url": "https://github.com/Riajyuu/Tab-Stack",
+    "version": "1.0.0",
+    "description": "Bring Vivaldi Tab Stack to Firefox",
+    "applications": {
+      "gecko": {
+        "id": "tabstack@github",
+        "strict_min_version": "63.0"
+      }
+    },
+    "icons": {
+      "48": "icon.svg",
+      "96": "icon.svg"
+    },
+    "background": {
+        "scripts": ["main.js"]
+    },
+    "permissions": [
+      "tabs",
+      "notifications",
+      "contextualIdentities",
+      "menus",
+      "activeTab",
+      "tabHide"
+    ]
+}
